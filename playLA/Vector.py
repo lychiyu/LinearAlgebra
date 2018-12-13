@@ -1,3 +1,8 @@
+import math
+
+from playLA._global import EPSILON
+
+
 class Vector:
     def __init__(self, l):
         """使用列表初始化向量"""
@@ -49,7 +54,21 @@ class Vector:
         """向量取负的结果"""
         return -1 * self
 
+    def __truediv__(self, k):
+        """返回数量除法的结果向量"""
+        return 1 / k * self
+
     @classmethod
     def zero(cls, dim):
         """返回dim维零向量"""
         return cls([0] * dim)
+
+    def norm(self):
+        """返回向量的模"""
+        return math.sqrt(sum(e ** 2 for e in self))
+
+    def normalize(self):
+        """归一化:返回向量的单位向量"""
+        if self.norm() < EPSILON:
+            raise ZeroDivisionError('向量的模是0')
+        return Vector(self._values) / self.norm()
