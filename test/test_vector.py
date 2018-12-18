@@ -6,7 +6,7 @@ if __name__ == '__main__':
     print(len(vec))
     print(vec[0], vec[1])
 
-    vec2 = Vector([2, 0])
+    vec2 = Vector([2, 1])
     print(f"{vec}+{vec2}={vec+vec2}")
     print(f"{vec}-{vec2}={vec-vec2}")
     print(f"{vec}*{3}={vec*3}")
@@ -14,3 +14,4 @@ if __name__ == '__main__':
     print(vec.norm())
     print(f'normalize {vec.normalize()}')
     print(f'normalize norm {vec.normalize().norm()}')
+    print(f'vector dot is {vec.dot(vec2)}')

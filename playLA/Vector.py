@@ -72,3 +72,8 @@ class Vector:
         if self.norm() < EPSILON:
             raise ZeroDivisionError('向量的模是0')
         return Vector(self._values) / self.norm()
+
+    def dot(self, other):
+        """向量点乘，返回一个标量"""
+        assert len(self) == len(other), '向量点乘时维度必须相同'
+        return sum(a * b for a, b in zip(self, other))
